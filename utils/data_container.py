@@ -141,6 +141,10 @@ class AccidentDataset(Dataset):
         temporal_features = selected_time[map(lambda ids: f'{ids[0]},{ids[1]}', zip(y_ids, x_ids))].values.transpose()
 
         # get external_features (weather + calendar)
+        print(type(date_range[-1]))
+        print(self.weather.index[:5])  # первые строки индекса
+        print(self.weather.index.dtype)
+        
         weather = self.weather.loc[date_range[-1]].tolist()
         external_features = weather + [accident_time.month, accident_time.day, accident_time.dayofweek,
                                        accident_time.hour, int(accident_time.dayofweek >= 5)]
