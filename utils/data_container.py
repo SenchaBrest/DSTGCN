@@ -200,6 +200,7 @@ def get_data_loaders(k_order, batch_size):
     nodes = pd.read_hdf(node_attr_path)
     # 'valid_time', 'temp', 'dewPt', 'rh', 'pressure', 'wspd', 'feels_like',  ......
     weather = pd.read_hdf(weather_path)
+    weather.index = pd.to_datetime(weather.index)
 
     speed = fill_speed(pd.read_hdf(speed_path))
 
