@@ -62,7 +62,8 @@ def collate_fn(batch):
 
 
 def fill_speed(speed_data):
-    date_range = pd.date_range(start="2018-08-01", end="2018-11-01", freq="1H")[:-1]
+    date_range = pd.date_range(start="2024-01-01", end="2024-05-11", freq="1H")[:-1]
+    speed_data = speed_data.set_index(pd.to_datetime(speed_data['valid_time']))
     speed_data = speed_data.resample(rule="1H").mean()
     assert date_range[0] in speed_data.index and date_range[-1] in speed_data.index
     one_week, two_week = datetime.timedelta(days=7), datetime.timedelta(days=14)
