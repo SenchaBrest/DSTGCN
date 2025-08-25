@@ -204,6 +204,7 @@ def get_data_loaders(k_order, batch_size):
     for key in ['train', 'validate', 'test']:
         # longitude   latitude  time  node_id  accident
         accident = pd.read_hdf(accident_path, key=key)
+        accident["time"] = pd.to_datetime(accident["time"])
         dataset = AccidentDataset(k_order, network, nodes, accident, weather, speed,
                                   sf_scaler=(sf_mean, sf_std),
                                   tf_scaler=(tf_mean, tf_std),
