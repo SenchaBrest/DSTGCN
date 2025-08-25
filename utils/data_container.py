@@ -127,6 +127,7 @@ class AccidentDataset(Dataset):
         g = dgl.DGLGraph(sub_graph)
 
         # get temporal_features (speed)
+        accident_time = pd.to_datetime(accident_time)
         date_range = pd.date_range(end=accident_time.strftime("%Y%m%d %H"), freq="1H", periods=24)
         selected_time = self.speed.loc[date_range]
 
