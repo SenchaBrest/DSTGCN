@@ -13,10 +13,10 @@ from tqdm import tqdm
 from transform_coord.coord_converter import convert_by_type
 from utils.load_config import get_attribute
 
-longitudeMin = 116.09608
-longitudeMax = 116.71040
-latitudeMin = 39.69086
-latitudeMax = 40.17647
+longitudeMin = 27.35
+longitudeMax = 27.80
+latitudeMin = 53.75
+latitudeMax = 54.05 
 
 longitudeMin, latitudeMin = convert_by_type(lng=longitudeMin, lat=latitudeMin, type="g2w")
 longitudeMax, latitudeMax = convert_by_type(lng=longitudeMax, lat=latitudeMax, type="g2w")
