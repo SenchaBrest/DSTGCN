@@ -36,7 +36,7 @@ def evaluate(y_predictions: np.ndarray, y_targets: np.ndarray, threshold: float 
     else:
         f1_score = 0.0
 
-    auc = 1 #metrics.roc_auc_score(y_targets, y_predictions)
+    auc = metrics.roc_auc_score(y_targets, y_predictions)
 
     del y_predictions, y_targets, tp, fp, fn, threshold, _
 
